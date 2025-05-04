@@ -1,0 +1,35 @@
+DROP DATABASE IF EXISTS FastFoodAppDB;
+CREATE DATABASE FastFoodAppDB;
+USE FastFoodAppDB;
+
+CREATE TABLE dishes(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    dish_name VARCHAR(45),
+    description VARCHAR(45),
+    restaurant_name VARCHAR(45),
+    restaurant_address VARCHAR(45),
+    filter ENUM('Dish','Appetizer','Dessert'),
+    price DOUBLE
+);
+
+
+CREATE TABLE restaurants(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(45),
+	address VARCHAR(45),
+	rating INT
+);
+
+CREATE TABLE profiles(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(45),
+	password VARCHAR(45),
+	role ENUM('Customer','Delivery','Manager')
+);
+
+CREATE TABLE orders(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	client_username VARCHAR(45),
+	delivery_payment DOUBLE,
+	status ENUM('Pending','Delivered')
+);
